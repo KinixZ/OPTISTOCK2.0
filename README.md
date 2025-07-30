@@ -16,6 +16,7 @@ CREATE TABLE users (
 );
 ```
 
+
 This repository now organizes the site under the `public/` folder with `index.php`, `login.php` and `register.php`.
 The registration and login pages use PHP to store and consultar datos de usuario en MySQL.
 
@@ -26,3 +27,6 @@ php -S localhost:8000 -t public
 ```
 
 Luego abre `http://localhost:8000` en tu navegador.
+
+This repository includes a basic index, login and registration page built with plain HTML and CSS.
+
