@@ -18,6 +18,6 @@
     </style>
 </head>
 <body>
-    <a href="login.html" class="btn-login">Iniciar sesión</a>
+    <a href="login.php" class="btn-login">Iniciar sesión</a>
 </body>
 </html>

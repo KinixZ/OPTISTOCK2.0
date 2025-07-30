@@ -1,3 +1,28 @@
+<?php
+require_once '../src/db.php';
+$mensaje = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $confirm = $_POST['confirm'] ?? '';
+
+    if ($password === $confirm) {
+        $hashed = password_hash($password, PASSWORD_DEFAULT);
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+        $stmt->bind_param('sss', $username, $email, $hashed);
+        if ($stmt->execute()) {
+            $mensaje = 'Usuario registrado correctamente.';
+        } else {
+            $mensaje = 'Error al registrar: ' . $conn->error;
+        }
+        $stmt->close();
+    } else {
+        $mensaje = 'Las contraseñas no coinciden.';
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,11 +35,13 @@
         label { margin-top: 10px; }
         input { padding: 8px; }
         button { margin-top: 20px; padding: 10px; background-color: #4CAF50; color: white; border: none; }
+        .mensaje { margin-top: 20px; color: red; }
     </style>
 </head>
 <body>
     <h1>Registrarse</h1>
-    <form>
+    <?php if ($mensaje) echo '<p class="mensaje">' . htmlspecialchars($mensaje) . '</p>'; ?>
+    <form method="post" action="">
         <label for="username">Usuario</label>
         <input type="text" id="username" name="username" required>
 
