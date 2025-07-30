@@ -1,9 +1,9 @@
 <?php
 // Simple MySQL connection using mysqli
 $host = 'localhost';
-$user = 'root';
-$pass = '';
-$db   = 'optistock_db';
+$user = 'u296155119_admin';
+$pass = '4Dmin123o';
+$db   = 'u296155119_OptiStock2';
 
 $conn = new mysqli($host, $user, $pass, $db);
 if ($conn->connect_error) {
