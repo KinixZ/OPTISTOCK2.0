@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPTISTOCK - Inicio</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding-top: 100px; }
+        .btn-login {
+            font-size: 2em;
+            padding: 20px 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <a href="login.php" class="btn-login">Iniciar sesión</a>
+</body>
+</html>
